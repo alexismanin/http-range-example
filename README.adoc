@@ -1,0 +1,41 @@
+= HTTP Range example
+
+This is a sandbox repository to test the capability to perform http range queries with various clients.
+
+== Components
+
+. `server`: a web service to publish files with HTTP range support (more information below)
+. `clients`: Client testing code and sample apps See link:clients/src/main/java/fr/amanin/examples/httprange/clients/package-info.java[its package-info] for more details.
+
+== Get started
+
+=== Requirements
+
+. JDK 16
+. Apache Maven 3.6.3 or newer.
+
+=== Build
+
+`mvn install`
+
+=== Launch test service
+
+A spring-boot web service provide acccess to local resources with HTTP range support.
+
+* You can add your own files in the `content` directory. A minimal text sample is provided.
+* After compilation, you can launch web server: `cd server && mvn spring-boot:run`
+** By default, it is deployed at http://localhost:7070/
+** Files pasted in link:server/content/[] directory are exposed at `/content/` context path. Therefore, default *ascii.txt* file is accessible at http://localhost:7070/content/ascii.txt.
+** Edit link:server/src/main/resources/application.properties[Spring application properties] to customize server port.
+** Edit link:server/src/main/kotlin/fr/amanin/examples/httprange/server/ServerApplication.kt[application class] to customize static resource publication if needed.
+
+== Interesting facts
+
+ * The new java HTTP client offers a bridge to reactive streams (java Flow API). That's good, because *in theory*, it should be easy to interoperate with spring reactor.
+
+== TODO
+
+* Create a command-line Spring-boot app to ease client testing
+* Test VFS http File-system to see if it provides efficient http virtual file-system.
+* Test other libraries ?
+* Advanced use-cases ?
