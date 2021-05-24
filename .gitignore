@@ -1,0 +1,48 @@
+*.log
+.classpath
+.project
+.settings/
+
+.DS_Store
+.hg
+.hgtags
+.hgignore
+
+# Maven files
+target/
+overlays/
+dependency-reduced-pom.xml
+
+# Netbeans files
+nbactions.xml$
+nbproject/
+nb-configuration.xml
+
+# IntelliJ files
+.idea/
+*.iml
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Ignore Python cache
+__pycache__
+
+# Ignore sphinx documentation folders
+_*
+
+# Ignore Jupyter notebook cache
+.ipynb_checkpoints
+
+# Data mount point for local dev environment
+docker/compose/mount/
+
+# NetCDF samples
+*.nc
+
+# Tiff samples
+*.tif
+*.tiff
